@@ -9,7 +9,7 @@ import PyPDF2
 import streamlit as st
 
 
-os.environ['OPENAI_API_KEY'] = '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'
+os.environ['OPENAI_API_KEY'] = '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'
 default_doc_name = 'doc.pdf'
 union1 = 'doc1.pdf'
 union2 = 'doc.pdf'

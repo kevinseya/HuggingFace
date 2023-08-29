@@ -26,11 +26,13 @@ def process_doc(
     doc = loader.load_and_split()
 
 #SEPARADOR DE DOCUMENTO EN SEGMENTOS DE 500
-    text_splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=500)
+    text_splitter = RecursiveCharacterTextSplitter(chunk_size=4000, chunk_overlap=3500)
     texts = text_splitter.split_documents(doc)
     print(texts[0].page_content)
 #CREACCIÓN DEL EMBEDDING
-    embeddings = SentenceTransformerEmbeddings(model_name="MBZUAI/LaMini-T5-738M")
+    model_id = 'sentence-transformers/all-MiniLM-L6-v2'
+    model_kwargs = {'device': 'cuda'}
+    embeddings = SentenceTransformerEmbeddings(model_name=model_id, model_kwargs=model_kwargs)
     db = Chroma.from_documents(texts, embeddings)
 #PARA HACER CONSULTA EN EL CHROMA
     tracemalloc.start()
