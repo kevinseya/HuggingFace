@@ -1,0 +1,11 @@
+Instalar
+
+--> Streamlit_HugginFace_LangChaing_PDF
+pip install transformers
+pip install sentence_transformers --user
+pip install chromadb
+pip install accelerate
+
+--> Streamlit_OpenAi_PDF
+pip install PyPDF2
+pip install tiktoken
